@@ -1,0 +1,270 @@
+﻿{% extends 'main.html' %}
+{% load static %}
+{% block body %}
+		<div id="page-wrapper">
+		  <div class="header"> 
+                        <h1 class="page-header">
+                            Dashboard
+                        </h1>
+						<ol class="breadcrumb">
+					  <li><a href="#">Home</a></li>
+					  <li><a href="#">Dashboard</a></li>
+					  <li class="active">Data</li>
+					</ol> 
+									
+		</div>
+            <div id="page-inner">
+
+			<div class="dashboard-cards"> 
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+					
+						<div class="card horizontal cardIcon waves-effect waves-dark">
+						<!--<div class="card-image red">
+						<i class="material-icons dp48">import_export</i>
+						</div>-->
+						<div class="card-stacked red">
+						<div class="card-content">
+						<h3>{{lencustomers}}</h3> 
+						</div>
+						<div class="card-action">
+						<strong>Total no. of Customers</strong>
+						</div>
+						</div>
+						</div>
+	 
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+					
+						<div class="card horizontal cardIcon waves-effect waves-dark">
+						<!--<div class="card-image orange">
+						<i class="material-icons dp48">shopping_cart</i>
+						</div>-->
+						<div class="card-stacked orange">
+						<div class="card-content">
+						<h3>{{lenproducts}}</h3> 
+						</div>
+						<div class="card-action">
+						<strong>Total no. of Products</strong>
+						</div>
+						</div>
+						</div> 
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+					
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+						<!--<div class="card-image blue">
+						<i class="material-icons dp48">equalizer</i>
+						</div>-->
+						<div class="card-stacked blue">
+						<div class="card-content">
+						<h3>{{lenorders}}</h3> 
+						</div>
+						<div class="card-action">
+						<strong>Total no. of Orders Placed</strong>
+						</div>
+						</div>
+						</div> 
+						 
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+					
+					<div class="card horizontal cardIcon waves-effect waves-dark">
+						<!--<div class="card-image green">
+						<i class="material-icons dp48">supervisor_account</i>
+						</div>-->
+						<div class="card-stacked green">
+						<div class="card-content">
+						<h3>{{lenproducts}}</h3> 
+						</div>
+						<div class="card-action">
+						<strong>Total no. of Feedbacks</strong>
+						</div>
+						</div>
+						</div> 
+						 
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+					
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+						<!--<div class="card-image blue">
+						<i class="material-icons dp48">equalizer</i>
+						</div>-->
+						<div class="card-stacked blue">
+						<div class="card-content">
+						<h3>{{lenreviews}}</h3> 
+						</div>
+						<div class="card-action">
+						<strong>Total no. of Reviews & Ratings</strong>
+						</div>
+						</div>
+						</div> 
+						 
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+					
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+						<!--<div class="card-image blue">
+						<i class="material-icons dp48">equalizer</i>
+						</div>-->
+						<div class="card-stacked blue">
+						<div class="card-content">
+						<h3>{{todaysorder}}</h3> 
+						</div>
+						<div class="card-action">
+						<strong>Total no. of Orders Today</strong>
+						</div>
+						</div>
+						</div> 
+						 
+                    </div>
+
+                </div>
+			   </div>
+
+				<!-- /. ROW  --> 
+
+		
+            <div id="page-inner"> 
+               
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="card">
+                        <div class="card-action">
+                            TOTAL PRODUCTS
+                        </div>
+                        <div class="card-content">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Product Name</th>
+                                            <th>Product Price</th>
+                                            <th>Date Posted</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for product in products %}
+                                        <tr class="odd gradeX">
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{product.name}}</td>
+                                            <td>{{product.price}}</td>
+                                            <td class="center">{{product.posting_date}}</td>
+                                            <td class="center"></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                  <!--   Kitchen Sink -->
+                    <div class="card">
+                        <div class="card-action">
+                            TOTAL USERS
+                        </div>
+                        <div class="card-content">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Username</th>
+                                            <th>Full Name</th>
+                                            <th>Email</th>
+                                            <th>Date Posted</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for customer in customers %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{customer.user}}</td>
+                                            <td>{{customer.user.first_name}} {{customer.user.last_name}}</td>
+                                            <td>{{customer.user.email}}</td>
+                                            <td>{{customer.posting_date.date}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- End  Kitchen Sink -->
+                </div>
+                <div class="col-md-6">
+                     <!--   Basic Table  -->
+                    <div class="card">
+                        <div class="card-action">
+                            ORDERS PLACED
+                        </div>
+                        <div class="card-content">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Customer Name</th>
+                                            <th>Customer Status</th>
+                                            <th>Date Posted</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for order in orders %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{order.customer.user.first_name}} {{order.customer.user.last_name}}</td>
+                                            <td>{{order.complete}}</td>
+                                            <td>{{order.posting_date}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                      <!-- End  Basic Table  -->
+                </div>
+            </div>
+               
+                </div>
+            </div>
+
+
+                <!-- /. ROW  -->
+			   <div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+		
+				<footer><p>All right reserved.</p>
+				
+        
+				</footer>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+{% endblock body %}

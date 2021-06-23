@@ -1,0 +1,72 @@
+{% extends 'store/main.html' %}
+{% block style %} Contact US - Food Ordering Website {% endblock  %}
+{% load static %}
+{% block content1 %}
+
+<nav id="sidebar">
+
+    <div id="dismiss">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+
+    <ul class="list-unstyled components">
+
+        <li>
+            <a href="{% url 'store' %}">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'aboutus' %}">About</a>
+        </li>
+        <li class="active">
+            <a href="{% url 'contactus' %}">Contact Us</a>
+        </li>
+        <li>
+            <a href="{% url 'handlelogin' %}">Login</a>
+        </li>
+        <li>
+            <a href="{% url 'handlesignup' %}">Register</a>
+        </li>
+    </ul>
+
+</nav>
+{% endblock content1 %}
+{% block content %}
+        <div class="" style="width:100%;margin-top:150px;">
+                <div class="row" style="width:100%;">
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                          <form class="main_form" action="{% url 'contactus' %}" method="POST">
+                              {% csrf_token %}
+                              <div class="row"> 
+                                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                      <input style="background:#ededed;" class="form-control" placeholder="Name" type="text" name="name">
+                                  </div>
+                                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                      <input style="background:#ededed;" class="form-control" placeholder="Email" type="text" name="email">
+                                  </div>
+                                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                      <input style="background:#ededed;" class="form-control" placeholder="Phone" type="text" name="phone">
+                                  </div>
+                                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                      <textarea style="background:#ededed;" class="textarea" placeholder="Message" type="text" name="message"></textarea>
+                                  </div>
+                                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                      <button class="send btn btn-dark">Send</button>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-none d-md-block">
+                          <div class="img-box">
+                              <figure><img style="width:80%;" src="{% static 'images1/img.jpg' %}" alt="img" /></figure>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+                <br>
+                <br>
+                <div class="container" style="width:100%;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3617.6056293694755!2d67.11319331498643!3d24.945501347987435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1623321603056!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+{% endblock content %}
